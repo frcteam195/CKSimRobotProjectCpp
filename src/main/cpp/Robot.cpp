@@ -7,8 +7,19 @@
 
 #include "Robot.h"
 
-void Robot::RobotInit() {}
-void Robot::RobotPeriodic() {}
+#include <team195/CKSim.h>
+#include <team195/CKSimMotor.h>
+#include <iostream>
+static team195::CKSimMotor motor0(0);
+void Robot::RobotInit()
+{
+    team195::CKSim::GetInstance().SetIP("10.0.3.133");
+}
+void Robot::RobotPeriodic()
+{
+    std::cout << "Running prog" << std::endl;
+    motor0.SetMotorValue(1.0f);
+}
 
 void Robot::AutonomousInit() {}
 void Robot::AutonomousPeriodic() {}
@@ -23,5 +34,8 @@ void Robot::TestInit() {}
 void Robot::TestPeriodic() {}
 
 #ifndef RUNNING_FRC_TESTS
-int main() { return frc::StartRobot<Robot>(); }
+int main()
+{
+    return frc::StartRobot<Robot>();
+}
 #endif
