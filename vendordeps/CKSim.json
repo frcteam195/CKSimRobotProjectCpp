@@ -51,7 +51,17 @@
                 "windowsx86-64"
             ]
         },
-
+        {
+            "groupId": "com.team195",
+            "artifactId": "libzmq",
+            "version": "4.3.3",
+            "libName": "libzmq",
+            "sharedLibrary": false,
+            "skipInvalidPlatforms": true,
+            "binaryPlatforms": [
+                "windowsx86-64"
+            ]
+        },
         {
             "groupId": "com.team195",
             "artifactId": "libprotobuf",

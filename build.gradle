@@ -11,9 +11,9 @@ tasks.whenTaskAdded {task ->
     if(task.name.contains("linkFrcUserProgramLinuxathenaDebugExecutable")) {
             task.enabled = false
     }
-    if(task.name.contains("linkFrcUserProgramWindowsx86-64DebugExecutable")) {
-            task.enabled = false
-    }
+    // if(task.name.contains("linkFrcUserProgramWindowsx86-64DebugExecutable")) {
+    //         task.enabled = false
+    // }
     if(task.name.contains("linkFrcUserProgramTestWindowsx86-64DebugGoogleTestExe")) {
             task.enabled = false
     }
@@ -76,11 +76,11 @@ dependencies {
 model {
     repositories {
         libs(PrebuiltLibraries) {
-            libzmq {
-                binaries.withType(StaticLibraryBinary) {
-                    staticLibraryFile = file( projectDir.absolutePath + "/lib/libzmq/libzmq-v142-md-s-4_3_3.lib")
-                }
-            }
+            // libzmq {
+            //     binaries.withType(StaticLibraryBinary) {
+            //         staticLibraryFile = file( projectDir.absolutePath + "/lib/libzmq/libzmq-v142-md-s-4_3_3.lib")
+            //     }
+            // }
         }
     }
 
@@ -102,7 +102,7 @@ model {
                         srcDir 'src/main/cpp'
                     }
                 }
-                lib library: "libzmq", linkage: 'static'
+                // lib library: "libzmq", linkage: 'static'
                 binaries.all {
                     linker.args << "WS2_32.lib"
                     linker.args << "Advapi32.lib"
@@ -124,7 +124,7 @@ model {
                     srcDir 'src/test/cpp'
                     include '**/*.cpp'
                 }
-                lib library: "libzmq", linkage: 'static'
+                // lib library: "libzmq", linkage: 'static'
                 binaries.all {
                     linker.args << "WS2_32.lib"
                     linker.args << "Advapi32.lib"
