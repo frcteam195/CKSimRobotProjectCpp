@@ -11,21 +11,6 @@ tasks.whenTaskAdded {task ->
     if(task.name.contains("linkFrcUserProgramLinuxathenaDebugExecutable")) {
             task.enabled = false
     }
-    // if(task.name.contains("linkFrcUserProgramWindowsx86-64DebugExecutable")) {
-    //         task.enabled = false
-    // }
-    if(task.name.contains("linkFrcUserProgramTestWindowsx86-64DebugGoogleTestExe")) {
-            task.enabled = false
-    }
-    if(task.name.contains("runFrcUserProgramTestWindowsx86-64DebugGoogleTestExe")) {
-            task.enabled = false
-    }
-    if(task.name.contains("runFrcUserProgramTestWindowsx86-64ReleaseGoogleTestExe")) {
-        task.enabled = false
-    }   
-    if(task.name.contains("linkFrcUserProgramTestWindowsx86-64ReleaseGoogleTestExe")) {
-        task.enabled = false
-    }
 }
 
 // Define my targets (RoboRIO) and artifacts (deployable files)
@@ -37,7 +22,7 @@ deploy {
             // or from command line. If not found an exception will be thrown.
             // You can use getTeamOrDefault(team) instead of getTeamNumber if you
             // want to store a team number in this file.
-            team = frc.getTeamNumber()
+            team = frc.getTeamOrDefault(195)
         }
     }
     artifacts {

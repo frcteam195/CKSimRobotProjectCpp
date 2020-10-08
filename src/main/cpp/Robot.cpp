@@ -7,23 +7,20 @@
 
 #include "Robot.h"
 
-#include <team195/CKSim.h>
-#include <team195/CKSimMotor.h>
 #include <iostream>
 
 //Cannot use a static variable here. Must be class instance var to avoid issue with sequence of lib static initialization.
-//Otherwise a nullptr err will occur on the mutexs inside CKSimLib
-// Robot::Robot() : motor0(0) {}
+//Otherwise a nullptr err will occur on the mutexes inside CKSimLib
+//The motor that is initialized with the setIPandReturnMotorId method must be declared first in the header file
+Robot::Robot() : frontBackMotor(setIPandReturnMotorId("10.0.3.133", 0)),
+                 leftRightMotor(1) {}
 
 void Robot::RobotInit()
 {
-    team195::CKSim::SetIP("10.0.3.133");
-    motor0 = new team195::CKSimMotor(0);
 }
 void Robot::RobotPeriodic()
 {
-    //std::cout << "Running robot prog" << std::endl;
-    motor0->SetMotorValue(1.0f);
+    frontBackMotor.SetMotorValue(1.0f);
 }
 
 void Robot::AutonomousInit() {}
