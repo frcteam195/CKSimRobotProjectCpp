@@ -1,24 +1,23 @@
 {
     "fileName": "CKSim.json",
     "name": "CKSim",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "uuid": "6e9b672a-7954-4720-ac60-65bb4b629e59",
     "mavenUrls": [
-        "https://raw.githubusercontent.com/frcteam195/CKMavenRepo/master/"
+        "C:/Users/R/Documents/repos/CKMavenRepo/"
     ],
-    "jsonUrl": "https://raw.githubusercontent.com/frcteam195/CKMavenRepo/master/CKSim.json",
     "javaDependencies": [
         {
             "groupId": "com.team195",
             "artifactId": "CKSim-java",
-            "version": "0.0.1"
+            "version": "0.0.2"
         }
     ],
     "jniDependencies": [
         {
             "groupId": "com.team195",
             "artifactId": "CKSim-driver",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "skipInvalidPlatforms": true,
             "isJar": false,
             "validPlatforms": [
@@ -30,7 +29,7 @@
         {
             "groupId": "com.team195",
             "artifactId": "CKSim-cpp",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "libName": "CKSim",
             "headerClassifier": "headers",
             "sharedLibrary": false,
@@ -42,7 +41,7 @@
         {
             "groupId": "com.team195",
             "artifactId": "CKSim-driver",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "libName": "CKSimDriver",
             "headerClassifier": "headers",
             "sharedLibrary": false,

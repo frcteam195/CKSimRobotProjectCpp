@@ -10,22 +10,33 @@
 #include <team195/CKSim.h>
 #include <team195/CKSimMotor.h>
 #include <iostream>
-static team195::CKSimMotor motor0(0);
+
+//Cannot use a static variable here. Must be class instance var to avoid issue with sequence of lib static initialization.
+//Otherwise a nullptr err will occur on the mutexs inside CKSimLib
+// Robot::Robot() : motor0(0) {}
+
 void Robot::RobotInit()
 {
-    team195::CKSim::GetInstance().SetIP("10.0.3.133");
+    team195::CKSim::SetIP("10.0.3.133");
+    motor0 = new team195::CKSimMotor(0);
 }
 void Robot::RobotPeriodic()
 {
-    std::cout << "Running prog" << std::endl;
-    motor0.SetMotorValue(1.0f);
+    //std::cout << "Running robot prog" << std::endl;
+    motor0->SetMotorValue(1.0f);
 }
 
 void Robot::AutonomousInit() {}
-void Robot::AutonomousPeriodic() {}
+void Robot::AutonomousPeriodic()
+{
+    std::cout << "Running auto prog" << std::endl;
+}
 
 void Robot::TeleopInit() {}
-void Robot::TeleopPeriodic() {}
+void Robot::TeleopPeriodic()
+{
+    std::cout << "Running teleop prog" << std::endl;
+}
 
 void Robot::DisabledInit() {}
 void Robot::DisabledPeriodic() {}
