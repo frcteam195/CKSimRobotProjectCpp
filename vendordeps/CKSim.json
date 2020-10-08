@@ -4,8 +4,9 @@
     "version": "0.0.2",
     "uuid": "6e9b672a-7954-4720-ac60-65bb4b629e59",
     "mavenUrls": [
-        "C:/Users/R/Documents/repos/CKMavenRepo/"
+        "https://raw.githubusercontent.com/frcteam195/CKMavenRepo/master/"
     ],
+    "jsonUrl": "https://raw.githubusercontent.com/frcteam195/CKMavenRepo/master/CKSim.json",
     "javaDependencies": [
         {
             "groupId": "com.team195",
