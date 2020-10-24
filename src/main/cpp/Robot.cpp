@@ -12,15 +12,20 @@
 //Cannot use a static variable here. Must be class instance var to avoid issue with sequence of lib static initialization.
 //Otherwise a nullptr err will occur on the mutexes inside CKSimLib
 //The motor that is initialized with the setIPandReturnMotorId method must be declared first in the header file
-Robot::Robot() : frontBackMotor(setIPandReturnMotorId("10.0.3.133", 0)),
-                 leftRightMotor(1) {}
+Robot::Robot() : frontBackMotor(setIPandReturnMotorId("127.0.0.2", 0)),
+                 leftRightMotor(1),
+                 mJoystick1(0),
+                 accel1(0, 3) {}
 
 void Robot::RobotInit()
 {
 }
 void Robot::RobotPeriodic()
 {
-    frontBackMotor.SetMotorValue(1.0f);
+    frontBackMotor.SetMotorValue(0.2f);
+    std::cout << "Accel 0:" << accel1.GetValue(0) << std::endl;
+    // frontBackMotor.SetMotorValue(mJoystick1.GetX());
+    // leftRightMotor.SetMotorValue(mJoystick1.GetRawButtonPressed(1));
 }
 
 void Robot::AutonomousInit() {}

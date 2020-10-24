@@ -1,7 +1,9 @@
 #pragma once
 #include <frc/TimedRobot.h>
+#include <team195/CKSimAccelerometer.h>
 #include <team195/CKSimMotor.h>
 #include <team195/CKSim.h>
+#include <frc/Joystick.h>
 
 class Robot : public frc::TimedRobot
 {
@@ -26,7 +28,10 @@ public:
 private:
     team195::CKSimMotor frontBackMotor;
     team195::CKSimMotor leftRightMotor;
-    static int setIPandReturnMotorId(const char *ip, int motorId)
+    frc::Joystick mJoystick1;
+    team195::CKSimAccelerometer accel1;
+    static int
+    setIPandReturnMotorId(const char *ip, int motorId)
     {
         team195::CKSim::SetIP(ip);
         return motorId;
